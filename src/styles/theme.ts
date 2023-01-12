@@ -3,7 +3,8 @@ const colors = {
   subColor: '#99FEFF',
   whiteColor: '#FFFFFF',
   blackColor: '#000000',
-  grayColor: '#DDDDDD',
+  grayColor: '#9E9E9E',
+  errorColor: '#FECEF5',
 };
 
 export const theme = {
