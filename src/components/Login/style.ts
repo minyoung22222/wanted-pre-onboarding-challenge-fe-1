@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SignUpContainer = styled.section`
+export const LoginContainer = styled.section`
   margin: 10rem auto;
 `;
 
