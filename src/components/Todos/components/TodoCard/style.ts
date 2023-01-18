@@ -21,7 +21,7 @@ export const TodoTitle = styled.h2`
   color: ${({ theme }) => theme.colors.whiteColor};
 `;
 
-export const TodoContents = styled.p`
+export const TodoContent = styled.p`
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.whiteColor};
   transition: padding-top 0.5s, padding-bottom 0.5s, height 0.5s, transform 0.5s;
