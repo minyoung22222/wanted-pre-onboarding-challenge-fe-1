@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import editIcon from '../../../../assets/icons/edit.png';
+import edit from '../../../../assets/icons/edit.png';
 import deleteIcon from '../../../../assets/icons/bin.png';
 import {
   TodoContainer,
@@ -25,7 +25,7 @@ export default function TodoCard() {
               <input type={'checkbox'} />
               <TodoTitle onClick={() => setIsMore(!isMore)}>{todo.title}</TodoTitle>
               <TodoEditButton type="button">
-                <img src={editIcon} alt="editIcon" />
+                <img src={edit} alt="editIcon" />
               </TodoEditButton>
               <TodoDeleteButton>
                 <img src={deleteIcon} alt="deleteIcon" />
