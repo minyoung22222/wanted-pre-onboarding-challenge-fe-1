@@ -12,7 +12,7 @@ export default function TodoCard() {
         todos.data.length !== 0 &&
         todos.data.map((todo: any) => (
           <TodoContainer key={todo.id}>
-            <TodoContents title={todo.title} content={todo.content} />
+            <TodoContents title={todo.title} content={todo.content} id={todo.id} />
           </TodoContainer>
         ))}
     </>
