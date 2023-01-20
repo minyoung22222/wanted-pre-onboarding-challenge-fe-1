@@ -11,31 +11,29 @@ import editIcon from '../../../../assets/icons/edit.png';
 import deleteIcon from '../../../../assets/icons/bin.png';
 import { useDeleteTodos } from '../../queries/todos/todos.query';
 import PutTodoForm from './PutTodoForm';
-import { useRecoilState } from 'recoil';
-import { setUpdateTodoAtom } from '../../../../stores/todo/setUpdateTodoAtom';
+import { TodoProps } from '../../../../types/todo/todo.type';
 
-interface TodoContentProps {
-  title: string;
-  content: string;
-  id: string;
-}
-
-export default function TodoContents({ title, content, id }: TodoContentProps) {
+export default function TodoContents({ title, content, id }: TodoProps) {
   const { mutate: DeleteTodosMutate } = useDeleteTodos();
-  const [updateTodo, setUpdateTodo] = useRecoilState(setUpdateTodoAtom);
   const [isMore, setIsMore] = useState(false);
+  const [isUpdateTodo, setIsUpdateTodo] = useState(false);
   return (
     <>
-      {updateTodo ? (
-        <PutTodoForm id={id} title={title} content={content} />
+      {isUpdateTodo ? (
+        <PutTodoForm
+          id={id}
+          title={title}
+          content={content}
+          setIsUpdateTodo={(isUpdateTodo: boolean) => setIsUpdateTodo(isUpdateTodo)}
+        />
       ) : (
         <TodoTitleContainer>
           <input type={'checkbox'} />
           <TodoTitle onClick={() => setIsMore(!isMore)}>{title}</TodoTitle>
-          <TodoEditButton type="button" onClick={() => setUpdateTodo(!updateTodo)}>
+          <TodoEditButton type="button" onClick={() => setIsUpdateTodo(true)}>
             <img src={editIcon} alt="editIcon" />
           </TodoEditButton>
-          <TodoDeleteButton type="button" onClick={() => DeleteTodosMutate(id)}>
+          <TodoDeleteButton type="button" onClick={() => DeleteTodosMutate(id as string)}>
             <img src={deleteIcon} alt="deleteIcon" />
           </TodoDeleteButton>
         </TodoTitleContainer>
